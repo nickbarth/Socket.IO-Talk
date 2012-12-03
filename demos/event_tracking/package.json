@@ -1,0 +1,9 @@
+{
+  "name": "socketio_mouseevent_demo",
+  "description": "An application demoing the features of Socket.IO.",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "socket.io": "0.9.x"
+  }
+}

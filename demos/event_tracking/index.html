@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Socket.IO Demo</title>
+  </head>
+  <body>
+    <script type="text/javascript" src="http://boiling-waters-5002.herokuapp.com/socket.io/socket.io.js"></script>
+    <script type="text/javascript">
+      var socket = io.connect('http://boiling-waters-5002.herokuapp.com/');
+      socket.on('connect', function() {
+        console.log('Connected to Server');
+        socket.emit('event', 'A NEW EVENT.')
+      });
+    </script>
+  </body>
+</html>
