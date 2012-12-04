@@ -1,7 +1,6 @@
-app = require '../server.coffee'
+require '../server.coffee'
 
-exports.raise_error = (error) ->
-  try
-    throw new Error(error)
-  catch error
-    done error
+module.exports =
+  Browser: require 'zombie'
+  assert:  require 'assert'
+  path:    require 'path'
