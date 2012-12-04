@@ -1,2 +1,1 @@
-
-asdf
+# Client Side Messaging Demo
