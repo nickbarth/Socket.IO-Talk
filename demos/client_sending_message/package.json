@@ -1,0 +1,17 @@
+{
+  "name": "socketio_demo",
+  "description": "An application demoing the features of Socket.IO.",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "socket.io": "~0.9.11"
+  },
+  "devDependencies": {
+    "mocha": "~1.7.3",
+    "zombie": "~2.0.0-alpha10",
+    "should": "~1.2.1"
+  },
+  "scripts": {
+    "test": "make"
+  }
+}

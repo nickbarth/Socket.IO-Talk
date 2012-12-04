@@ -1,0 +1,14 @@
+<html>
+  <body>
+    <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+    <script>
+      var socket = io.connect('http://localhost:3000');
+      socket.on('connect', function() {
+        socket.emit('message_server', 'Hi There');
+      });
+      socket.on('message_received', function() {
+        console.log('Your message was received.');
+      });
+    </script>
+  </body>
+</html>
