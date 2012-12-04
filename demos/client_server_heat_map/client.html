@@ -2,11 +2,11 @@
   <head>
     <title>Client Server Heat Map</title>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <script src="http://talks.nickbarth.ca/socket.io/heatmap.js"></script>
-    <script src="http://talks.nickbarth.ca:3000/socket.io/socket.io.js"></script>
+    <script src="http://raw.github.com/pa7/heatmap.js/master/heatmap.js"></script>
+    <script src="http://localhost:3000/socket.io/socket.io.js"></script>
     <script>
       // Initialize Socket.IO.
-      var socket = io.connect('http://talks.nickbarth.ca:3000')
+      var socket = io.connect('http://localhost:3000')
         , heatmap = null;
 
       // Initialize a new heat map.
