@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <title>Client Server Heat Map</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="http://talks.nickbarth.ca/socket.io/heatmap.js"></script>
+    <script src="http://talks.nickbarth.ca:3000/socket.io/socket.io.js"></script>
+    <script>
+      // Initialize Socket.IO.
+      var socket = io.connect('http://talks.nickbarth.ca:3000')
+        , heatmap = null;
+
+      // Initialize a new heat map.
+      $(document).ready(function() {
+        var config = {
+            "radius": 30,
+            "element": "heatMapEl",
+            "visible": true,
+            "opacity": 40,
+            "gradient": { 0.45: "rgb(0,0,255)", 0.55: "rgb(0,255,255)", 0.65: "rgb(0,255,0)", 0.95: "yellow", 1.0: "rgb(255,0,0)" }
+        }; heatmap = heatmapFactory.create(config);
+      });
+
+      // Setup mouse tracking.
+      socket.on('connect', function() {
+        $(document).mousemove(function(event) {
+          socket.emit('mouse_move', event.pageX, event.pageY);
+        });
+      });
+
+      // Add any received tracking to the heat map.
+      socket.on('mouse_move', function(xpos, ypos) {
+        heatmap.store.addDataPoint(xpos, ypos);
+        console.log('Mouse move at ['+xpos+', '+ypos+'].')
+      });
+    </script>
+    <style>
+      body { margin: 0; padding: 0 }
+      #heatMapEl { width: 100%; height: 100%; }
+    </style>
+  </head>
+  <body>
+    <div id="heatMapEl"></div>
+  </body>
+</html>
