@@ -1,16 +1,11 @@
-helper = require './test_helper'
-Browser = require 'zombie'
-assert = require 'assert'
-path = require 'path'
-
-ex = exports
+{ Browser, assert, path } = require './test_helper'
 
 describe 'Socket.IO Server', ->
   before ->
-    ex.browser = new Browser( silent: true )
+    @browser = new Browser( silent: true )
 
   it 'should receive client messages', (done)->
-    ex.browser.on 'console', (level, message)->
+    @browser.on 'console', (level, message)->
       assert.equal message, 'Your message was received.'
       done null
-    ex.browser.visit "file://#{path.resolve(__dirname, '../client.html')}"
+    @browser.visit "file://#{path.resolve(__dirname, '../client.html')}"

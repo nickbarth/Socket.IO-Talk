@@ -1,4 +1,4 @@
-app = require '../server.coffee'
+require '../server.coffee'
 
 module.exports =
   Browser: require 'zombie'
